@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+.space-align-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    margin-left: 60px;
+    max-width: 1400px;
+  }
+
+  .admin-container{
+    display: flex;
+    flex-direction: row;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+padding-left: 40px; /* Espaçamento à esquerda */
+padding-right: 40px; /* Espaçamento à direita */
+box-sizing: border-box; /* Inclui padding na largura total */
+  }
+
+
+  .admin-buttons{
+    display: flex;
+    gap:.5rem;
+  }
