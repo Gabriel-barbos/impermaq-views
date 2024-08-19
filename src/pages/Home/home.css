@@ -43,61 +43,27 @@ html {
     font-style: normal;
 }
 
-/* BRANDS */
+/* sub-header */
 
+.subheader{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #bdbdbd;
+  justify-content: space-around; /* Distribuição diferente */
+  padding: 20px;
+}
 
-
-.brands {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px;
-    background: #d9d9d9;
-    margin-top: 1rem;
-  }
-  
-  .brands h2 {
-    font-size: 2.5rem;
-    text-transform: none;
-    letter-spacing: normal;
-    text-align: start;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .brands_list {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1.5rem;
-    max-width:600px ;
-  }
-  
-  .brands_item {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 6.8rem;
-    height: 6.8rem;
-    aspect-ratio: 1/1;
-    border: 1px solid black;
-    border-radius: 50rem;
-    background-color: white;
-  }
-  
-  .brand_logo_big {
-    height: 1.4rem;
-  }
-  .brand_logo {
-    height: 2.5rem;
+.subheader h2{
+  font-size: 40px;
+  font-weight: 300;
+  width: 480px;
   }
 
-  .brand_logo_small{
-    height: 4rem;
-
-  }
+.header-carousel {
+width: 450px;
+margin-right: 10px;
+}
 
 /* MAQUINAS */
 

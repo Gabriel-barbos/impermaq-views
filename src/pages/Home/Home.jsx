@@ -4,10 +4,11 @@ import Navbar from '../../assets/components/navbar';
 import main from '../../assets/img/main.png'
 
 // icons
-import romi_logo from '../../assets/img/romi_logo.png'
-import schneider_logo from '../../assets/img/schneider_logo.png'
-import siemens_logo from '../../assets/img/siemens_logo.png'
-import weg_logo from '../../assets/img/weg_logo.png'
+import img1 from '../../assets/img/img1.png'
+import img2 from '../../assets/img/img2.png'
+import img3 from '../../assets/img/img3.png'
+import img4 from '../../assets/img/img4.png'
+
 import book_icon from '../../assets/img/icons/book.svg'
 import check_icon from '../../assets/img/icons/checklist.svg'
 import key_icon from  '../../assets/img/icons/tool.svg'
@@ -26,7 +27,7 @@ import { fetchProducts } from '../../api';
 import  { useEffect, useState } from 'react';
 import ProductCard from '../../assets/components/product-card';
 import { useNavigate } from 'react-router-dom'; 
-import {  Modal,Button, Result} from 'antd';
+import {  Modal,Button, Result, Carousel} from 'antd';
 
 
 function Home(){
@@ -39,21 +40,21 @@ function Home(){
   const [clickCount, setClickCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-//modal config
-
-const showModal = () => {
-  setIsModalOpen(true);
+//Alert MOdal
+const info = () => {
+  Modal.info({
+    title: 'Serviço indisponivel',
+    content: (
+      
+       <Result
+          status="warning"
+          title="Esse serviço esta temporariamente indisponivel"
+      />
+      
+    ),
+    onOk() {},
+  });
 };
-
-const handleOk = () => {
-  setIsModalOpen(false);
-};
-
-const handleCancel = () => {
-  setIsModalOpen(false);
-};
-
-
 
 
   const navigate = useNavigate(); 
@@ -123,6 +124,35 @@ const handleCancel = () => {
         }
       };
 
+      const contentStyle = {
+        height: '260px',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      };
+
+      const imageStyle = {
+        width: '100%',
+        height: 'auto',
+        maxHeight: '280px',
+        borderRadius: '10px', // Adicione border-radius aqui
+        objectFit: 'contain', // Para garantir que a imagem se ajuste ao container mantendo a proporção
+      };
+
+      const responsiveStyle = {
+        '@media (max-width: 768px)': {
+          Height: '120px', // Ajusta a altura máxima para telas menores
+        },
+        '@media (max-width: 480px)': {
+          Height: '100px', // Ajusta ainda mais para telas muito pequenas
+        },
+      };
+
+      const images = [img2,img3,img1,img4];
+
 
   return (
     <>
@@ -137,30 +167,28 @@ const handleCancel = () => {
         </div>
       </div>
 
-      {/* Brands */}
+      {/* subheader */}
 
-      <section className="brands">
-        <h2>Trabalhamos com as principais marcas do mercado</h2>
+<div className='subheader'>
+    <h2>Compra e venda de máquinas e equipamentos novos e usados </h2>
 
-        <ul className="brands_list">
-          <li className="brands_item">
-            <img className="brand_logo" src={romi_logo} />
-          </li>
+      
+    <div className='header-carousel'>
+  <Carousel autoplay>
+    {images.map((image, index) => (
+      <div key={index} style={contentStyle}>
+        <img
+          src={image}
+          alt={`slide-${index}`}
+          style={{ ...imageStyle, ...responsiveStyle }}
+        />
+      </div>
+    ))}
+  </Carousel>
+  </div>
+      
 
-          <li className="brands_item">
-            <img className="brand_logo" src={schneider_logo} />
-          </li>
-
-          <li className="brands_item">
-            <img className="brand_logo_big" src={siemens_logo} />
-          </li>
-
-          <li className="brands_item">
-            <img className="brand_logo_small" src={weg_logo} />
-          </li>
-        </ul>
-      </section>
-
+  </div>
       {/* Maquinas */}
 
       <section className="machines-container">
@@ -188,21 +216,8 @@ const handleCancel = () => {
                 <img src={check_icon} className="service-image" />
               </div>
               <h3 className="service-title">Manutenção Preventiva</h3>
-              <button onClick={showModal}>Entre em contato</button>
-              <Modal title="Serviço  indisponivel" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                
-              <Result
-                 status="warning"
-                   title="Esse serviço esta temporariamente indisponivel"
-                    xtra={
-                     <Button type="primary" key="console">
-                    Fechar
-            </Button>
- }
- />
-
-
-            </Modal>
+              <button onClick={info}>Entre em contato</button>
+            
             </div>
           </div>
 
@@ -212,7 +227,7 @@ const handleCancel = () => {
                 <img src={key_icon} className="service-image" />
               </div>
               <h3 className="service-title">Manutenção Corretiva</h3>
-              <button onClick={showModal} >Entre em contato</button>
+              <button onClick={info} >Entre em contato</button>
             </div>
           </div>
 
@@ -222,7 +237,7 @@ const handleCancel = () => {
                 <img src={book_icon} className="service-image" />
               </div>
               <h3 className="service-title">Consultoria</h3>
-              <button onClick={showModal}>Entre em contato</button>
+              <button onClick={info}>Entre em contato</button>
             </div>
           </div>
         </div>
