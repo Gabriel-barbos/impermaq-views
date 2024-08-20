@@ -7,7 +7,6 @@ import main from '../../assets/img/main.png'
 import img1 from '../../assets/img/img1.png'
 import img2 from '../../assets/img/img2.png'
 import img3 from '../../assets/img/img3.png'
-import img4 from '../../assets/img/img4.png'
 
 import book_icon from '../../assets/img/icons/book.svg'
 import check_icon from '../../assets/img/icons/checklist.svg'
@@ -135,7 +134,7 @@ const info = () => {
 
     
 
-      const images = [img2,img3,img1,img4];
+      const images = [img2,img3,img1];
 
 
   return (

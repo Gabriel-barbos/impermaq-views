@@ -43,6 +43,9 @@ body {
   gap: 1rem;
 }
 
+.visit-card{
+  margin-right: 23px;
+}
 .navbar-links a {
   color: rgb(0, 0, 0);
   text-decoration: none;

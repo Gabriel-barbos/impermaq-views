@@ -6,7 +6,7 @@ import placeholder from '../../assets/img/placeholder1.png';
 import logo_placeholder from '../../assets/img/logo_placeholder.jpeg';
 import { fetchAdminData } from '../../api';
 import { Carousel } from 'antd';
-
+import Navbar from '../../assets/components/navbar';
 function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -68,14 +68,15 @@ function ProductPage() {
 
   return (
     <>
-      <BackButton />
+    <Navbar/>
+    <BackButton className="back-button" />
       
       <div className="product-top">
       <div className="img-container">
-      <Carousel
+      <Carousel 
+      arrows infinite={true}
         dots={true} // Ativa os pontos de navegação
         autoplay={true} // Reproduz automaticamente
-        infinite={true} // Permite rotação infinita
       >
         {images.map((image, index) => (
           <div key={index}>
@@ -114,7 +115,7 @@ function ProductPage() {
 
         <h1 className="duvidas">Dúvidas?</h1>
         <div className='button-duvidas'>
-          <button>Fale com nosso time</button>
+          <button onClick={redirectToWhatsApp}>Fale com nosso time</button>
         </div>
       </div>
 

@@ -70,7 +70,7 @@ margin-right: 10px;
   height: auto;
   max-height: 280px;
   border-radius: 15px;
-  object-fit: contain;
+  object-fit:contain;
 }
 
 /* MAQUINAS */
@@ -435,7 +435,7 @@ flex-wrap: wrap;
     }
 
   .services-list{
-    margin-left: 50px;
+    margin-left:35px;
   }
 
   .about-container{
