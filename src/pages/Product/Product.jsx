@@ -5,6 +5,7 @@ import './product.css';
 import placeholder from '../../assets/img/placeholder1.png';
 import logo_placeholder from '../../assets/img/logo_placeholder.jpeg';
 import { fetchAdminData } from '../../api';
+import { Carousel } from 'antd';
 
 function ProductPage() {
   const { id } = useParams();
@@ -63,41 +64,31 @@ function ProductPage() {
   };
 
   // Use URLs do Cloudinary
-  const productImage = product.images && product.images.length > 0 ? product.images[0] : null;
+  const images = product.images && product.images.length > 1 ? product.images : [placeholder, placeholder, placeholder, placeholder];
 
   return (
     <>
       <BackButton />
       
       <div className="product-top">
-        <div className="img-container">
-          <img
-            src={productImage ? productImage : placeholder}
-            className="main-img-p"
-            alt="Produto"
-            onError={handleImageError}
-          />
-          <div className="mini-img-container">
-            {product.images && product.images.length > 1 ? (
-              product.images.slice(1).map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Produto ${index + 1}`}
-                  onError={handleImageError}
-                />
-              ))
-            ) : (
-              <>
-                <img src={placeholder} alt="placeholder" />
-                <img src={placeholder} alt="placeholder" />
-                <img src={placeholder} alt="placeholder" />
-                <img src={placeholder} alt="placeholder" />
-              </>
-            )}
+      <div className="img-container">
+      <Carousel
+        dots={true} // Ativa os pontos de navegação
+        autoplay={true} // Reproduz automaticamente
+        infinite={true} // Permite rotação infinita
+      >
+        {images.map((image, index) => (
+          <div key={index}>
+            <img
+              src={image}
+              alt={`Produto ${index + 1}`}
+              className="carousel-img"
+              onError={handleImageError}
+            />
           </div>
-        </div>
-
+        ))}
+      </Carousel>
+    </div>
         <div className="product-info">
           <h1>{product.name}</h1>
           <span className={`badge ${product.condition === 'Novo' ? 'badge-novo' : 'badge-usado'}`}>

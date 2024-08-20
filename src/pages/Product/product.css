@@ -59,7 +59,13 @@ margin-left: 20px;
 }
 
 
-
+.carousel-img{
+    width: 600px;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    margin-right: 100px; 
+    object-fit: contain; 
+}
 
 
 .product-info h1{
@@ -259,6 +265,11 @@ align-items: center;
 
   @media (max-width: 600px) {
     
+    .carousel-img{
+        width: 370px;
+    }
+
+
     .mini-img-container{
         display: flex;
         max-width: 100px;
