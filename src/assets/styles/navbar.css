@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-  position: fixed; /* Fixa a navbar no topo da página */
+  position: relative; /* Fixa a navbar no topo da página */
   top: 0;
   left: 0;
   width: 100%; /* Garante que a navbar ocupe toda a largura da página */
