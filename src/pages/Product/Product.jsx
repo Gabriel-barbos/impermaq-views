@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import BackButton from "../../assets/components/Backbutton";
 import './product.css';
 import placeholder from '../../assets/img/placeholder1.png';
-import logo_placeholder from '../../assets/img/logo_placeholder.jpeg';
+import logo from '../../assets/img/logo.jpg';
 import { fetchAdminData } from '../../api';
 import { Carousel, Spin } from 'antd';
 import Navbar from '../../assets/components/navbar';
@@ -144,7 +144,7 @@ function ProductPage() {
             </p>
           </div>
           <div className='footer-middle'>
-            <img src={logo_placeholder} alt="Logo" />
+            <img src={logo} alt="Logo" />
             <h4>© 2024. desenvolvido por Gabriel Barbosa Da Silva</h4>
           </div>
           <div className='footer-right'>

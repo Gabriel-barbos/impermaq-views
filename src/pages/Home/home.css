@@ -522,6 +522,9 @@ flex-wrap: wrap;
     margin-left: 0;
 }
 
+.button-email button{
+  font-size: 16px;
+}
 .about-text{
     font-size: 25px;
 }
