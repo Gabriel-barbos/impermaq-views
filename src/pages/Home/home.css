@@ -65,6 +65,14 @@ width: 450px;
 margin-right: 10px;
 }
 
+.carousel-image{
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
 /* MAQUINAS */
 
 .machines-container{
@@ -412,6 +420,7 @@ flex-wrap: wrap;
         font-family: "Lato", sans-serif;
         font-weight: 400;
         font-style: normal;
+        margin-left: 30px;
     }
 
     .brands h2 {
@@ -474,6 +483,28 @@ flex-wrap: wrap;
 .footer-container img{
   height: 70px;
 }
+.skills-container{
+  margin-left: 60px;
+}
+
+.carousel-image{
+  max-height: 180px;
+  margin: 0;
+  padding: 0;
+
+}
+
+.subheader h2{
+  font-size: 20px;
+  margin-left: 30px;
+}
+.header-carousel{
+  width: 300px;
+}
+.subheader{
+  width: 90%;
+  align-items: center;
+}
 }
 
 
@@ -496,7 +527,7 @@ flex-wrap: wrap;
 }
 
 .skills-container{
-  margin-left: 50px;
+  margin-left: 65px;
 }
 }
   

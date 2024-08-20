@@ -22,8 +22,14 @@ const Navbar = () => {
       </ul>
       <div className="navbar-logo">
       <AlignJustify className="menu-icon" onClick={toggleMenu}  />
-
+       
         <img src= {logo} alt="Logo" className="logo" />
+        <div className='visit-card'>
+        <p>
+        Rua Dom Manuel O Venturos, 40 <br>
+        </br>CEP 03806-100 São Paulo-SP
+      </p>
+        </div>
       </div>
     </nav>
   );

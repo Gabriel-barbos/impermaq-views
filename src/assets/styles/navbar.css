@@ -80,4 +80,14 @@ body {
   .navbar-links.active {
     display: flex;
   }
+
+  .logo{
+    margin-left: 5px;
+    height: 40px;
+  }
+
+  .visit-card p{
+    font-size: 10px;
+    margin-left: 130px;
+  }
 }

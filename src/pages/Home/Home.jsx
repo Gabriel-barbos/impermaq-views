@@ -27,7 +27,7 @@ import { fetchProducts } from '../../api';
 import  { useEffect, useState } from 'react';
 import ProductCard from '../../assets/components/product-card';
 import { useNavigate } from 'react-router-dom'; 
-import {  Modal,Button, Result, Carousel} from 'antd';
+import {  Modal, Result, Carousel} from 'antd';
 
 
 function Home(){
@@ -38,7 +38,6 @@ function Home(){
   const [adminData, setAdminData] = useState({}); //buscar dados do admin
   const [showAllProducts, setShowAllProducts] = useState(false);
   const [clickCount, setClickCount] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
 //Alert MOdal
 const info = () => {
@@ -134,22 +133,7 @@ const info = () => {
         alignItems: 'center',
       };
 
-      const imageStyle = {
-        width: '100%',
-        height: 'auto',
-        maxHeight: '280px',
-        borderRadius: '10px', // Adicione border-radius aqui
-        objectFit: 'contain', // Para garantir que a imagem se ajuste ao container mantendo a proporção
-      };
-
-      const responsiveStyle = {
-        '@media (max-width: 768px)': {
-          Height: '120px', // Ajusta a altura máxima para telas menores
-        },
-        '@media (max-width: 480px)': {
-          Height: '100px', // Ajusta ainda mais para telas muito pequenas
-        },
-      };
+    
 
       const images = [img2,img3,img1,img4];
 
@@ -180,8 +164,7 @@ const info = () => {
         <img
           src={image}
           alt={`slide-${index}`}
-          style={{ ...imageStyle, ...responsiveStyle }}
-        />
+        className='carousel-image'/>
       </div>
     ))}
   </Carousel>
@@ -324,6 +307,10 @@ Email <br/>
         <h4>© 2024. Site desenvolvido por Gabriel Barbosa Da Silva</h4>
         </div>
     <div className='footer-right'>
+      <p>
+        Rua Dom Manuel O Venturos, 40 <br>
+        </br>CEP 03806-100 São Paulo-SP
+      </p>
  <p> 
   Hórario de funcionamento<br/>
   Seg - Sex / 9:00 - 18:00 Hs.
