@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-  position: relative; /* Fixa a navbar no topo da página */
+  position: fixed; /* Fixa a navbar no topo da página */
   top: 0;
   left: 0;
   width: 100%; /* Garante que a navbar ocupe toda a largura da página */
@@ -23,6 +23,10 @@ body {
 .navbar-logo {
   display: flex;
   align-items: center;
+}
+
+.navbar-title {
+  display: none; /* Oculta o span por padrão */
 }
 
 .logo {
@@ -69,6 +73,12 @@ body {
     background-color: #f4f4f4;
     width: 100%;
     text-align: center;
+  }
+
+  .navbar-title {
+    display: inline; /* Mostra o span em telas pequenas */
+    margin-right: -50px;
+    margin-left: 50px;
   }
 
   .navbar-links a {

@@ -6,7 +6,6 @@ import placeholder from '../../assets/img/placeholder1.png';
 import logo from '../../assets/img/logo.jpg';
 import { fetchAdminData } from '../../api';
 import { Carousel, Spin } from 'antd';
-import Navbar from '../../assets/components/navbar';
 function ProductPage() {
   
   const { id } = useParams();
@@ -80,7 +79,6 @@ function ProductPage() {
 
   return (
     <>
-    <Navbar/>
     <BackButton  />
       
       <div className="product-top">

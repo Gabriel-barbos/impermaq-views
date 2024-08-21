@@ -291,7 +291,9 @@ const content = <div style={contentStyle1} />;
   <img src={wpp} />
   
   <div className='button-wpp'>
-  <button onClick={redirectToWhatsApp}>Clique Aqui</button>
+  <button onClick={redirectToWhatsApp}>
+    <span>Clique Aqui</span>
+    </button>
   </div>
 </div>
 </div>
