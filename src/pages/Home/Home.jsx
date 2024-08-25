@@ -298,6 +298,7 @@ const content = <div style={contentStyle1} />;
 </div>
 </div>
 </section>
+</div>
 
 <footer>
   <div className='footer-container'>
@@ -326,7 +327,6 @@ Email <br/>
     </div>
   </div>
 </footer>
-</div>
 
     </>
   );
