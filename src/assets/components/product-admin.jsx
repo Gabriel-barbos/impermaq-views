@@ -49,23 +49,13 @@ const ProductAdmin = ({ product, onDelete  }) => {
 
   return (
     <>
-      <Card
-        style={{
-          width: 300,
-          padding: 10,
-        }}
-      >
-        <div className="Aproduct-container">
-          {/* Verifica se a primeira imagem existe, se não, usa a placeholder */}
-          <img
-            src={productImage ? productImage : placeholder}
-            alt="Product"
-            style={{ width: '100%', height: 'auto' }} // Ajuste para exibir a imagem corretamente
-          />          <p className="name">{product.name}</p>
-
-          <button className="edit-btn" onClick={showModal}>
+      <div class="card-admin">
+        <div class="card-content-admin">
+        <img src={productImage ? productImage : placeholder} alt={product.name} style={{ width: '100%', height: 'auto' }}/>
+            <h2 className="name">{product.name}</h2>
+            <button className="edit-btn" onClick={showModal}>
             EDITAR
-          </button>
+          </button>     
           <Modal
             open={open}
             title="Editar Produto"
@@ -80,8 +70,8 @@ const ProductAdmin = ({ product, onDelete  }) => {
           >
             EXCLUIR
           </button>
-        </div>
-      </Card>
+          </div>
+    </div>
     </>
   );
 };

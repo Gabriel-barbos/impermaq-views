@@ -26,7 +26,7 @@ import { fetchProducts } from '../../api';
 import  { useEffect, useState } from 'react';
 import ProductCard from '../../assets/components/product-card';
 import { useNavigate } from 'react-router-dom'; 
-import {  Modal, Result, Carousel} from 'antd';
+import {  Modal, Result, Carousel,Spin} from 'antd';
 
 
 function Home(){
@@ -54,6 +54,12 @@ const info = () => {
   });
 };
 
+const contentStyle1 = {
+  padding: 50,
+  background: 'rgba(0, 0, 0, 0.05)',
+  borderRadius: 4,
+};
+const content = <div style={contentStyle1} />;
 
   const navigate = useNavigate(); 
 
@@ -77,7 +83,9 @@ const info = () => {
     }, []);
   
     if (loading) {
-      return <p>Loading...</p>;
+      return <Spin tip="Loading" size="large">
+      {content}
+    </Spin>;
     }
   
     if (error) {
@@ -282,7 +290,9 @@ const info = () => {
   <img src={wpp} />
   
   <div className='button-wpp'>
-  <button onClick={redirectToWhatsApp}>Clique Aqui</button>
+  <button onClick={redirectToWhatsApp}>
+    <span>Clique Aqui</span>
+    </button>
   </div>
 </div>
 </div>
@@ -302,7 +312,7 @@ Email <br/>
     </div>
     <div className='footer-middle'>
         <img src={logo} onClick={handleImageClick}></img>
-        <h4>© 2024. Site desenvolvido por Gabriel Barbosa Da Silva</h4>
+        <h4>© 2024. desenvolvido por Gabriel Barbosa Da Silva</h4>
         </div>
     <div className='footer-right'>
       <p>

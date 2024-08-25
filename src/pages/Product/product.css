@@ -32,37 +32,10 @@ margin-left: 20px;
 }
 
 
-.main-img-p{
-    
-         width: 600px;
-        border: 2px solid #cecece;
-        border-radius: 10px;
-        margin-right: 100px; /* Ajuste conforme necessário */
-        object-fit: cover; /* Garante que a imagem se ajuste ao contêiner mantendo as proporções */
-    
-    
-}
-
-.mini-img-container{
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    gap: 10px;
-}
-
-.mini-img-container img{
-    width: 140px;
-    height: auto;
-    display: flex;
-
-    margin-top: 10px;
-}
-
-
 .carousel-img{
     width: 600px;
     border: 2px solid #cecece;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-right: 100px; 
     object-fit: contain; 
 }
@@ -71,7 +44,7 @@ margin-left: 20px;
 .product-info h1{
     font-family: "Lato", sans-serif;
     font-weight: 350;
-    font-size: 50px;
+    font-size: 40px;
     font-style: light;
     margin-bottom: 15px;
 }
@@ -91,7 +64,6 @@ margin-left: 20px;
     font-style: normal;
     margin-bottom: 0px;
     font-size: 22px;
-    margin-left: -35px;
 }
 
 .product-info p{
@@ -100,7 +72,6 @@ margin-left: 20px;
     font-style: normal;
     margin-bottom: 15px;
     font-size: 22px;
-    margin-left: -35px;
 }
 
 .badge {
@@ -132,7 +103,7 @@ margin-left: 20px;
     margin-top: 30px;
     display: inline-flex; 
     align-items: center; 
-    background-color: #f0cb54; 
+    background-color: #f0c32f; 
     color: rgb(0, 0, 0); 
     padding: 10px 20px; 
     font-size: 20px; 
@@ -143,7 +114,7 @@ margin-left: 20px;
     transition: background-color 0.3s, transform 0.3s ease;
     width: 280px; /* Define a largura automática */
     white-space: nowrap; /* Impede a quebra de linha no texto */
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .buy-now:hover {
@@ -170,23 +141,16 @@ margin-left: 20px;
     color: #ffffff;
 }
 
-.product-bottom{
-    display: flex;
-    justify-content: space-between; /* Espaça os itens para as extremidades */
-    align-items: center; /* Alinha os itens verticalmente no centro */
-    width: 100%;
-    padding: 20px; /* Adiciona um pouco de espaço ao redor do container */
-    box-sizing: border-box;
-}
+
 
 .product-bottom-left{
     width: 40%;
+    margin-top: -75px;
+    margin-left: 25px;
 }
 
 .product-bottom-right{
     width: 50%;
-margin-top: -70px;
-margin-left: 5px;
 }
 
 .product-bottom p{
@@ -227,27 +191,12 @@ margin-left: 5px;
 
 }
 
-.main-img-p{
-    width: 400px;
-}
 
-.mini-img-container img{
-    width: 100px;
-}
-
-.product-info {
-    width: 100%;
-}
-.product-info p{
-    width: 100%;
-}
 .product-bottom-left, .product-bottom-right{
     width: 100%;
 }
 
-.product-bottom-left{
-    margin-bottom: 100px;
-}
+
 
 .product-bottom{
 display: flex;
@@ -261,6 +210,7 @@ align-items: center;
 }
 
 
+
   }
 
   @media (max-width: 600px) {
@@ -269,18 +219,21 @@ align-items: center;
         width: 370px;
     }
 
+    .product-bottom-left{
+        margin-top: -5px;
+        margin-left: 20px;
 
-    .mini-img-container{
-        display: flex;
-        max-width: 100px;
+    }
+    .product-bottom-left p{
+        margin-left: 10px;
+        margin-top: -5px;
+
     }
 
-    .mini-img-container img{
-    
-        max-width: 150px;
+    .product-info p, h3{
+        margin-left: 10px;
+        max-width: 300px;
     }
-  
-    
   }
 
   @media (max-width: 500px) {
@@ -307,16 +260,10 @@ align-items: center;
     margin-left: 10px;
 }
 
-.main-img-p, .img-container{
-    margin-right: 0px;
-}
-    .mini-img-container img{
-    
-        max-width:90px;
-    }
+
 
     .product-info p, h3{
         margin-left: 10px;
-        max-width: 380px;
+        max-width: 300px;
     }
   }

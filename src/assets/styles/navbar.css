@@ -25,6 +25,10 @@ body {
   align-items: center;
 }
 
+.navbar-title {
+  display: none; /* Oculta o span por padrão */
+}
+
 .logo {
   height: 70px;
   margin-left: 70px;
@@ -69,6 +73,12 @@ body {
     background-color: #f4f4f4;
     width: 100%;
     text-align: center;
+  }
+
+  .navbar-title {
+    display: inline; /* Mostra o span em telas pequenas */
+    margin-right: -50px;
+    margin-left: 50px;
   }
 
   .navbar-links a {

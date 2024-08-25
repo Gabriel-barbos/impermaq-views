@@ -1,55 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-.Aproduct-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.Aproduct-container img{
-  width: 100%;          /* Ajusta a largura da imagem para o tamanho do contêiner */
-    height: 200px;        /* Define uma altura fixa para todas as imagens */
-    object-fit: contain;    /* Garante que a imagem preencha o contêiner sem distorcer */
-    object-position: center; /* Centraliza a imagem dentro do contêiner */
-    border-radius: 10px; /* Arredonda as bordas da imagem */
-}
-
-.name{
-    font-size: 20px;
-    font-family: "Lato", sans-serif;
-    font-weight: 600;
-    padding-bottom: -1rem;
-    margin: 0;
+.card-content-admin h2{
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  padding-bottom: -1rem;
+  margin: 0;
+  margin: 10px;
+  text-transform: uppercase;
 }
 
 
 
-.see_more_container{
-display: flex;
-flex-direction: column;
-padding: 4rem 2rem ;
-background-color: brown;
+
+.card button {
+  background-color: #fcc437;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block; /* Alterado de inline-block para block */
+  width: 100%; /* Adicionado para preencher toda a largura do card */
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: background-color 0.3s;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
 }
-.see_more_container{
-    text-decoration: none;
+.card button:hover {
+  background-color: #fdb704; 
 }
+
+
+.card-admin {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
 
 .edit-btn {
 background-color: #ffffff; 
   color: rgb(0, 0, 0); 
-  padding:10px 50px; 
+  padding:10px ; 
   text-align: center; 
   text-decoration: none; 
-  display: inline-block; 
-  font-size: 16px; 
+  display: block; /* Alterado de inline-block para block */
+  width: 100%; /* Adicionado para preencher toda a largura do card */  font-size: 16px; 
   cursor: pointer; 
-  border-radius: 12px; 
   transition: background-color 0.3s; 
   font-size: 20px;
   font-family: "Lato", sans-serif;
   font-weight: 600;
   border-color: black;
-  margin-bottom: 5px;
+}
+
+.edit-btn:hover {
+  background-color: #000000; 
+  color: #fff;
+  border-color: rgb(255, 255, 255);
+
 }
 
 .delete-btn {
@@ -59,17 +79,19 @@ background-color: #ffffff;
   padding:10px 45px; 
   text-align: center; 
   text-decoration: none; 
-  display: inline-block; 
-  font-size: 16px; 
+  display: block; /* Alterado de inline-block para block */
+  width: 100%; /* Adicionado para preencher toda a largura do card */  font-size: 16px; 
+  cursor: pointer;   font-size: 16px; 
   cursor: pointer; 
-  border-radius: 12px; 
   transition: background-color 0.3s; 
   font-size: 20px;
   font-family: "Lato", sans-serif;
   font-weight: 600;
+  border-color: rgb(255, 255, 255);
+
 }
 
-
-.product-container button:hover {
-    background-color: #f1bb32; 
-  }
+.delete-btn:hover {
+  background-color: #e02929; 
+  color: #000000;
+}
