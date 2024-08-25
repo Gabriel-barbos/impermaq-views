@@ -17,8 +17,8 @@ function ProductCard({ product }) {
   return (
     <>
 
-<div class="card">
-        <div class="card-content">
+<div className="card">
+        <div className="card-content">
         <img src={productImage ? productImage : placeholder} alt={product.name} style={{ width: '100%', height: 'auto' }}/>
             <h2 className="name">{product.name}</h2>
             <button onClick={handleViewMore}>VER MAIS</button>        

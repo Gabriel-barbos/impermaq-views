@@ -147,8 +147,9 @@ const content = <div style={contentStyle1} />;
 
   return (
     <>
-      <Navbar />
+        <Navbar />
       {/* Home */}
+      
       <div className="home-container">
       <div className="main-menu">
         <div className="main-menu__content">
@@ -185,10 +186,14 @@ const content = <div style={contentStyle1} />;
       <section className="machines-container">
         <h1 id='produtoo'>Máquinas</h1>
         
+        <div className='product-grid'>
+
+        
           {products.slice(0, showAllProducts ? products.length : 8).map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
 
+</div>
         <button className="see-all-btn" onClick={toggleShowAllProducts}>
           <span className="button-text">{showAllProducts ? 'VER MENOS' : 'VER MAIS'}</span>
           <ArrowUpRight className="icon" />

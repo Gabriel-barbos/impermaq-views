@@ -49,8 +49,8 @@ const ProductAdmin = ({ product, onDelete  }) => {
 
   return (
     <>
-      <div class="card-admin">
-        <div class="card-content-admin">
+      <div className="card-admin">
+        <div className="card-content-admin">
         <img src={productImage ? productImage : placeholder} alt={product.name} style={{ width: '100%', height: 'auto' }}/>
             <h2 className="name">{product.name}</h2>
             <button className="edit-btn" onClick={showModal}>

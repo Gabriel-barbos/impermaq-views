@@ -18,7 +18,6 @@ html {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  padding: 20px;
   width: 100%;
   height: 100%;
 }
@@ -63,13 +62,12 @@ html {
   }
 
 .header-carousel {
-width: 450px;
-margin-right: 10px;
+width: 400px;
 }
 
 .carousel-image{
-  height: 280px;
-  max-height: 280px;
+  height: 270px;
+  max-height: 270px;
   border-radius: 15px;
   object-fit:cover;
 }
@@ -88,6 +86,13 @@ margin-right: 10px;
   align-items: flex-start;
 }
 
+.product-grid{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+gap: 30px;
+}
 .machines-container h1{
     width: fit-content; /* Ajusta a largura ao conteúdo */
 
