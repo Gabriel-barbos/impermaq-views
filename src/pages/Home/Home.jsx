@@ -141,6 +141,7 @@ const info = () => {
     <>
       <Navbar />
       {/* Home */}
+      <div className="home-container">
       <div className="main-menu">
         <div className="main-menu__content">
           <img src={main} className="main-image" />
@@ -176,11 +177,9 @@ const info = () => {
       <section className="machines-container">
         <h1 id='produtoo'>Máquinas</h1>
         
-        <div className="space-align-container">
           {products.slice(0, showAllProducts ? products.length : 8).map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
-        </div>
 
         <button className="see-all-btn" onClick={toggleShowAllProducts}>
           <span className="button-text">{showAllProducts ? 'VER MENOS' : 'VER MAIS'}</span>
@@ -317,6 +316,8 @@ Email <br/>
     </div>
   </div>
 </footer>
+</div>
+
     </>
   );
 }
