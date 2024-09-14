@@ -22,6 +22,7 @@ margin-left: 20px;
     flex-direction: column;
     flex: 1;
     min-width: 45%; /* Garante que a div não fique muito pequena */
+    
 }
 
 .product-info{
@@ -34,10 +35,14 @@ margin-left: 20px;
 
 .carousel-img{
     width: 600px;
-    border: 2px solid #cecece;
+    height: 600px;
+    border: 1px solid #e7e7e7;
     border-radius: 15px;
     margin-right: 100px; 
     object-fit: contain; 
+    max-height: 600px;
+    margin-bottom: 60px;
+    background-color: #ffffffc2;
 }
 
 
@@ -74,6 +79,14 @@ margin-left: 20px;
     font-size: 22px;
 }
 
+.product-bottom-left ul{
+    font-size: 25px;
+}
+
+.product-bottom-left h3{
+    font-size: 25px;
+    margin-top: 60px;
+}
 .badge {
     padding: 5px 10px;
     border-radius: 5px;
@@ -217,6 +230,7 @@ align-items: center;
     
     .carousel-img{
         width: 370px;
+        height: 370px;
     }
 
     .product-bottom-left{
@@ -234,6 +248,16 @@ align-items: center;
         margin-left: 10px;
         max-width: 300px;
     }
+
+    .product-bottom-left ul{
+        font-size: 23px;
+    }
+    
+    .product-bottom-left h3{
+        font-size: 22px;
+        margin-top: 15px;
+    }
+
   }
 
   @media (max-width: 500px) {

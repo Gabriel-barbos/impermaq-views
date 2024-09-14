@@ -119,9 +119,17 @@ function ProductPage() {
         </div>
       </div>
       <div className="product-bottom-left">
-            <h3>Especificações</h3>
-            <p>{product.specifications}</p>
-          </div>
+  <h3>Especificações</h3>
+  {/* Verifica se há especificações e transforma em tópicos */}
+  <ul>
+    {product.specifications
+      .split('.')
+      .filter((spec) => spec.trim() !== '')
+      .map((spec, index) => (
+        <li key={index}>{spec.trim()}</li>
+      ))}
+  </ul>
+</div>
       <div className="product-page">
       
 

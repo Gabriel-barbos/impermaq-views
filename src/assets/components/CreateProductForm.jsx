@@ -19,14 +19,14 @@ const CreateProductForm = () => {
   const uploadToCloudinary = async (file) => {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'padrao'); // Substitua 'your_upload_preset' pelo seu preset de upload
+    formData.append('upload_preset', 'padrao');
 
     const response = await axios.post(
       'https://api.cloudinary.com/v1_1/dcafl8a98/image/upload',
       formData
     );
 
-    return response.data.secure_url; // Retorna o URL seguro da imagem no Cloudinary
+    return response.data.secure_url;
   };
 
   const handleSubmit = async (values) => {
@@ -37,9 +37,15 @@ const CreateProductForm = () => {
         values.images.map((file) => uploadToCloudinary(file.originFileObj))
       );
 
+      // Converte o array de tópicos em uma string antes de enviar
+      const formattedSpecifications = values.specifications
+        ? values.specifications.split('\n').filter((line) => line.trim() !== '').join('\n')
+        : '';
+
       const productData = {
         ...values,
         images: uploadedImageUrls, // Substitui o array de arquivos pelo array de URLs
+        specifications: formattedSpecifications, // Especificações agora como uma string formatada
       };
 
       const response = await fetch('https://backend-api-gold-mu.vercel.app/api/products', {
