@@ -12,8 +12,8 @@ function AdminLogin() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const usuarioCorreto = 'admin';
-        const senhaCorreta = '1234';
+        const usuarioCorreto = 'Admin@impermaq';
+        const senhaCorreta = 'GueJu2101&';
 
         if (usuario === usuarioCorreto && senha === senhaCorreta) {
             alert('Login bem-sucedido!');

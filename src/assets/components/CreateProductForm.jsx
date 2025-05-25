@@ -131,6 +131,7 @@ const CreateProductForm = () => {
         <Radio.Group>
           <Radio value="Novo">Novo</Radio>
           <Radio value="Usado">Usado</Radio>
+          <Radio value="Retrofitado">Retrofitado</Radio>
         </Radio.Group>
       </Form.Item>
 
