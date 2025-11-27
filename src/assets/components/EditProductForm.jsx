@@ -15,7 +15,7 @@ const EditProductForm = ({ product, onSuccess }) => {
       acessorios: product.accessories,
       condicao: product.condition,
       imagens: product.images.map((url, index) => ({
-        uid: index,
+        uid: `-${index}`, //UID negativo para imagens existentes
         name: `image-${index}`,
         status: 'done',
         url: url
@@ -39,25 +39,19 @@ const EditProductForm = ({ product, onSuccess }) => {
       formData.append('accessories', values.acessorios);
       formData.append('condition', values.condicao);
 
-      const existingImages = product.images || [];
+      // Separar imagens existentes das novas
+      const existingImages = [];
       const newImages = [];
-      const imagesToRemove = [];
 
-      if (values.imagens) {
+      if (values.imagens && values.imagens.length > 0) {
         values.imagens.forEach((file) => {
+          // Se tem originFileObj, é uma nova imagem
           if (file.originFileObj) {
             newImages.push(file.originFileObj);
-          } else {
-            if (!existingImages.includes(file.url)) {
-              existingImages.push(file.url);
-            }
-          }
-        });
-
-        // Detectar imagens removidas
-        existingImages.forEach((url) => {
-          if (!values.imagens.find((file) => file.url === url)) {
-            imagesToRemove.push(url);
+          } 
+          // Se tem URL mas não tem originFileObj, é uma imagem existente
+          else if (file.url) {
+            existingImages.push(file.url);
           }
         });
       }
@@ -67,9 +61,17 @@ const EditProductForm = ({ product, onSuccess }) => {
         formData.append('images', file);
       });
 
-      // Adicionar URLs de imagens existentes e removidas ao FormData
+      // Enviar as URLs das imagens existentes que devem ser mantidas
       formData.append('existingImages', JSON.stringify(existingImages));
+
+      // Detectar imagens que foram removidas (estavam no produto original mas não estão mais na lista)
+      const imagesToRemove = product.images.filter(url => !existingImages.includes(url));
       formData.append('imagesToRemove', JSON.stringify(imagesToRemove));
+
+      console.log('Dados sendo enviados:');
+      console.log('- Imagens existentes mantidas:', existingImages);
+      console.log('- Novas imagens:', newImages.length);
+      console.log('- Imagens removidas:', imagesToRemove);
 
       const response = await fetch(`https://backend-api-gold-mu.vercel.app/api/products/${product._id}`, {
         method: 'PUT',
@@ -78,12 +80,13 @@ const EditProductForm = ({ product, onSuccess }) => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to update product');
+        throw new Error(errorData.message || 'Falha ao atualizar produto');
       }
 
       message.success('Produto atualizado com sucesso!');
       onSuccess();
     } catch (error) {
+      console.error('Erro ao atualizar produto:', error);
       message.error(error.message);
     }
   };
@@ -91,7 +94,7 @@ const EditProductForm = ({ product, onSuccess }) => {
   return (
     <Form
       form={form}
-      layout="horizontal"
+      layout="vertical"
       style={{ maxWidth: 600 }}
       initialValues={{
         condicao: 'Novo',
@@ -103,19 +106,21 @@ const EditProductForm = ({ product, onSuccess }) => {
         name="nome"
         rules={[{ required: true, message: 'Por favor, insira o nome do produto!' }]}
       >
-        <Input />
+        <Input placeholder="Nome do produto" />
       </Form.Item>
 
       <Form.Item
-        label="Imagens"
+        label="Imagens (máximo 10)"
         name="imagens"
         valuePropName="fileList"
         getValueFromEvent={normFile}
+        extra="Você pode adicionar até 10 imagens"
       >
         <Upload
           listType="picture-card"
           beforeUpload={() => false}
-          maxCount={5}
+          maxCount={10}
+          multiple
         >
           <button
             style={{
@@ -130,25 +135,33 @@ const EditProductForm = ({ product, onSuccess }) => {
                 marginTop: 8,
               }}
             >
-              Adicionar Imagens
+              Adicionar
             </div>
           </button>
         </Upload>
       </Form.Item>
 
-      <Form.Item label="Descrição" name="descricao">
-        <TextArea rows={4} />
+      <Form.Item 
+        label="Descrição" 
+        name="descricao"
+        rules={[{ required: true, message: 'Por favor, insira a descrição!' }]}
+      >
+        <TextArea rows={4} placeholder="Descreva o produto..." />
       </Form.Item>
 
       <Form.Item label="Detalhes" name="detalhes">
-        <TextArea rows={4} />
+        <TextArea rows={4} placeholder="Especificações técnicas..." />
       </Form.Item>
 
       <Form.Item label="Acessórios" name="acessorios">
-        <TextArea rows={4} />
+        <TextArea rows={4} placeholder="Acessórios inclusos..." />
       </Form.Item>
 
-      <Form.Item label="Condição" name="condicao">
+      <Form.Item 
+        label="Condição" 
+        name="condicao"
+        rules={[{ required: true, message: 'Selecione a condição!' }]}
+      >
         <Radio.Group>
           <Radio value="Novo">Novo</Radio>
           <Radio value="Usado">Usado</Radio>
@@ -157,7 +170,7 @@ const EditProductForm = ({ product, onSuccess }) => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" size="large" block>
           Salvar Alterações
         </Button>
       </Form.Item>

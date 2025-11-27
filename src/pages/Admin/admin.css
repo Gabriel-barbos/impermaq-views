@@ -1,28 +1,200 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+/* Container principal da página */
+.admin-page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8edf2 100%);
+  padding: 2rem;
+  font-family: 'Lato', sans-serif;
+}
 
+/* Header da página admin */
+.admin-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto 2.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.admin-container:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.admin-page h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-page h1::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 32px;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 2px;
+}
+
+/* Botões de ação */
+.admin-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.admin-buttons button {
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.admin-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.admin-buttons .ant-btn-primary {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border: none;
+  padding: 0 1.5rem;
+}
+
+/* Grid de produtos */
 .space-align-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 3rem;
-    margin-left: 60px;
-    max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Estados de loading e erro */
+.admin-status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-status-container p {
+  font-size: 1.125rem;
+  color: #666;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Customização dos modais */
+.ant-modal-header {
+  border-radius: 12px 12px 0 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+}
+
+.ant-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.ant-modal-content {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ant-modal-body {
+  padding: 2rem;
+}
+
+.ant-modal-footer {
+  border-top: 1px solid #f0f0f0;
+  padding: 1rem 1.5rem;
+}
+
+/* Formulários */
+.ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ant-input,
+.ant-input-textarea textarea {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.ant-input:focus,
+.ant-input-textarea textarea:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .space-align-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-page-wrapper {
+    padding: 1rem;
   }
 
-  .admin-container{
-    display: flex;
-    flex-direction: row;
-justify-content: space-between;
-align-items: center;
-width: 100%;
-padding-left: 40px; /* Espaçamento à esquerda */
-padding-right: 40px; /* Espaçamento à direita */
-box-sizing: border-box; /* Inclui padding na largura total */
+  .admin-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
-
-  .admin-buttons{
-    display: flex;
-    gap:.5rem;
+  .admin-page h1 {
+    font-size: 1.5rem;
   }
+
+  .admin-buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .space-align-container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .admin-buttons button {
+    width: 100%;
+  }
+
+  .admin-page h1 {
+    font-size: 1.25rem;
+  }
+}
